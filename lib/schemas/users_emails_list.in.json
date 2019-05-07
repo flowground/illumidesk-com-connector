@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "user": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        },
+        "ordering": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

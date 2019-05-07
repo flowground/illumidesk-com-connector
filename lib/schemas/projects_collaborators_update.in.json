@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "collaborator": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "member": {
+                    "description": "Project member username.",
+                    "type": "string"
+                },
+                "owner": {
+                    "description": "Project owner. Defaults to false.",
+                    "type": "boolean"
+                },
+                "permissions": {
+                    "description": "Permissions assigned to collaborator.",
+                    "enum": [
+                        "read_project",
+                        "write_project"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "member",
+                "permissions"
+            ],
+            "type": "object"
+        }
+    }
+}

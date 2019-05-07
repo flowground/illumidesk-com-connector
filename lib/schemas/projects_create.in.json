@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "Project description.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Project name.",
+                    "type": "string"
+                },
+                "private": {
+                    "description": "Private project true, otherwise public.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

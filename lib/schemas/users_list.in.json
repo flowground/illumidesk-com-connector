@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        },
+        "username": {
+            "required": false,
+            "type": "string"
+        },
+        "email": {
+            "required": false,
+            "type": "string"
+        },
+        "ordering": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

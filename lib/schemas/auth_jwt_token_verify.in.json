@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "token": {
+                    "description": "JSON Web Token (JWT).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "token"
+            ],
+            "type": "object"
+        }
+    }
+}

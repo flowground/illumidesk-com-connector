@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "project": {
+                    "description": "UUID of the project the user wishes to copy.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "project"
+            ],
+            "type": "object"
+        }
+    }
+}

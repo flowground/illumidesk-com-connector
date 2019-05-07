@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "application": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "authorization_grant_type": {
+                    "description": "OAuth2 authorization grant type",
+                    "enum": [
+                        "authorization-code",
+                        "implicit",
+                        "password",
+                        "client-credentials"
+                    ],
+                    "type": "string"
+                },
+                "client_type": {
+                    "description": "OAuth2 client type",
+                    "enum": [
+                        "confidential",
+                        "public"
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Application name",
+                    "type": "string"
+                },
+                "redirect_uris": {
+                    "description": "Uris to redirect auth request",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "client_type",
+                "authorization_grant_type",
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

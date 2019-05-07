@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "server": {
+            "required": true,
+            "type": "string"
+        },
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "tunnel": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

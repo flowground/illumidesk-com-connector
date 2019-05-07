@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "team": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

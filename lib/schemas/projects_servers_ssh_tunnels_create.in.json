@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "server": {
+            "required": true,
+            "type": "string"
+        },
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "endpoint": {
+                    "description": "SSH tunnel endpoint.",
+                    "type": "string"
+                },
+                "host": {
+                    "description": "SSH tunnel host.",
+                    "type": "string"
+                },
+                "local_port": {
+                    "description": "SSH tunnel local port.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "SSH tunnel name.",
+                    "type": "string"
+                },
+                "remote_port": {
+                    "description": "SSH tunnel remote port.",
+                    "type": "integer"
+                },
+                "username": {
+                    "description": "User name to establish SSH tunnel.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "host",
+                "local_port",
+                "remote_port",
+                "endpoint",
+                "username"
+            ],
+            "type": "object"
+        }
+    }
+}

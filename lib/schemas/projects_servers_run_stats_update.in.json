@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "server": {
+            "required": true,
+            "type": "string"
+        },
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "exit_code": {
+                    "description": "Server exit code.",
+                    "type": "integer"
+                },
+                "size": {
+                    "description": "Server size.",
+                    "type": "integer"
+                },
+                "stacktrace": {
+                    "description": "Server stacktrace.",
+                    "type": "string"
+                },
+                "start": {
+                    "description": "Server start.",
+                    "type": "string"
+                },
+                "stop": {
+                    "description": "Server stop.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

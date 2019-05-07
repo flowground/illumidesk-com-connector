@@ -1,0 +1,2354 @@
+{
+    "title": "IllumiDesk",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/illumidesk.com/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.illumidesk.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "jwt": {
+                "label": "Authorization (jwt)",
+                "viewClass": "TextFieldView",
+                "note": "A valid JSON Web Token (JWT) must be passed for all operations except for those in the `/auth` route. A JWT can be retrieved from the `/auth/jwt-token-auth` endpoint.\n\nThe following syntax is required:\n\n  Authorization: Bearer <token>\n"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "auth_jwt_token_auth": {
+            "main": "./lib/actions/auth_jwt_token_auth.js",
+            "title": "Create JSON Web Token (JWT)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/auth_jwt_token_auth.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "auth_jwt_token_refresh": {
+            "main": "./lib/actions/auth_jwt_token_refresh.js",
+            "title": "Refresh a JSON Web Token (JWT)",
+            "description": "Obtains a new JSON Web Token using existing user credentials.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/auth_jwt_token_refresh.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "auth_jwt_token_verify": {
+            "main": "./lib/actions/auth_jwt_token_verify.js",
+            "title": "Validate JSON Web Token (JWT)",
+            "description": "Checks veraciy of token.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/auth_jwt_token_verify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_login": {
+            "main": "./lib/actions/oauth_login.js",
+            "title": "oauth_login",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_login.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "auth_register": {
+            "main": "./lib/actions/auth_register.js",
+            "title": "Register a user",
+            "description": "User registration requires confirming email address to activate user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/auth_register.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "me": {
+            "main": "./lib/actions/me.js",
+            "title": "A convenience endpoint that is equivalent to GET /v1/users/profiles/<my user id>/",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/me.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "servers_options_sizes_list": {
+            "main": "./lib/actions/servers_options_sizes_list.js",
+            "title": "Retrieve available server sizes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/servers_options_sizes_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "servers_options_server_size_create": {
+            "main": "./lib/actions/servers_options_server_size_create.js",
+            "title": "Create a new server size item",
+            "description": "Only super users with on-premises version have acceess to this endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/servers_options_server_size_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "servers_options_server_size_delete": {
+            "main": "./lib/actions/servers_options_server_size_delete.js",
+            "title": "Delete a server size by id",
+            "description": "Only super users with on-premises version have acceess to this endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/servers_options_server_size_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "servers_options_resources_read": {
+            "main": "./lib/actions/servers_options_resources_read.js",
+            "title": "Get a server size by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/servers_options_resources_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "servers_options_server_size_update": {
+            "main": "./lib/actions/servers_options_server_size_update.js",
+            "title": "Update a server size by id",
+            "description": "Only super users with on-premises version have acceess to this endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/servers_options_server_size_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "servers_options_server_size_replace": {
+            "main": "./lib/actions/servers_options_server_size_replace.js",
+            "title": "Replace a server size by id",
+            "description": "Only super users with on-premises version have acceess to this endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/servers_options_server_size_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_list": {
+            "main": "./lib/actions/teams_list.js",
+            "title": "Get teams",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_create": {
+            "main": "./lib/actions/teams_create.js",
+            "title": "Create a new team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_delete": {
+            "main": "./lib/actions/teams_delete.js",
+            "title": "Delete a team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_read": {
+            "main": "./lib/actions/teams_read.js",
+            "title": "Get a team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_update": {
+            "main": "./lib/actions/teams_update.js",
+            "title": "Update a team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_replace": {
+            "main": "./lib/actions/teams_replace.js",
+            "title": "Replace a team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_invoices_list": {
+            "main": "./lib/actions/teams_billing_invoices_list.js",
+            "title": "Get team invoices",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_invoices_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_invoices_read": {
+            "main": "./lib/actions/teams_billing_invoices_read.js",
+            "title": "Get an invoice",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_invoices_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_invoice_items_list": {
+            "main": "./lib/actions/teams_billing_invoice_items_list.js",
+            "title": "Get team invoice items for a given invoice.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_invoice_items_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_invoice_items_read": {
+            "main": "./lib/actions/teams_billing_invoice_items_read.js",
+            "title": "Get a specific team InvoiceItem.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_invoice_items_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_subscriptions_list": {
+            "main": "./lib/actions/teams_billing_subscriptions_list.js",
+            "title": "Get active team subscriptons",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_subscriptions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_subscriptions_create": {
+            "main": "./lib/actions/teams_billing_subscriptions_create.js",
+            "title": "Create a new team subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_subscriptions_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_subscriptions_delete": {
+            "main": "./lib/actions/teams_billing_subscriptions_delete.js",
+            "title": "Delete a subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_subscriptions_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_billing_subscriptions_read": {
+            "main": "./lib/actions/teams_billing_subscriptions_read.js",
+            "title": "Get team subscriptions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_billing_subscriptions_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_groups_list": {
+            "main": "./lib/actions/teams_groups_list.js",
+            "title": "Get team groups",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_groups_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_groups_delete": {
+            "main": "./lib/actions/teams_groups_delete.js",
+            "title": "Delete team group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_groups_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_groups_read": {
+            "main": "./lib/actions/teams_groups_read.js",
+            "title": "Get team group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_groups_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_groups_update": {
+            "main": "./lib/actions/teams_groups_update.js",
+            "title": "Patch team group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_groups_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_groups_replace": {
+            "main": "./lib/actions/teams_groups_replace.js",
+            "title": "Patch team group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_groups_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_groups_add_to_group": {
+            "main": "./lib/actions/teams_groups_add_to_group.js",
+            "title": "Add user to group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_groups_add_to_group.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "teams_groups_remove_from_group": {
+            "main": "./lib/actions/teams_groups_remove_from_group.js",
+            "title": "User removed from group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/teams_groups_remove_from_group.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_list": {
+            "main": "./lib/actions/users_list.js",
+            "title": "Get user list",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_create": {
+            "main": "./lib/actions/users_create.js",
+            "title": "Create new user",
+            "description": "Only admin users can create new users. New users have active status by default.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_delete": {
+            "main": "./lib/actions/users_delete.js",
+            "title": "Delete a user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_read": {
+            "main": "./lib/actions/users_read.js",
+            "title": "Retrieve a user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_update": {
+            "main": "./lib/actions/users_update.js",
+            "title": "Update a user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_api_key_list": {
+            "main": "./lib/actions/users_api_key_list.js",
+            "title": "Retrieve account's API key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_api_key_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "user_avatar_delete": {
+            "main": "./lib/actions/user_avatar_delete.js",
+            "title": "Delete avatar",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/user_avatar_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "user_avatar_get": {
+            "main": "./lib/actions/user_avatar_get.js",
+            "title": "Retrieve user's avatar",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/user_avatar_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "user_avatar_update": {
+            "main": "./lib/actions/user_avatar_update.js",
+            "title": "Update a project file",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/user_avatar_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "user_avatar_set": {
+            "main": "./lib/actions/user_avatar_set.js",
+            "title": "Add user avatar",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/user_avatar_set.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_emails_list": {
+            "main": "./lib/actions/users_emails_list.js",
+            "title": "Retrieve account email addresses",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_emails_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_emails_create": {
+            "main": "./lib/actions/users_emails_create.js",
+            "title": "Create an email address",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_emails_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_emails_delete": {
+            "main": "./lib/actions/users_emails_delete.js",
+            "title": "Delete an email address",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_emails_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_emails_read": {
+            "main": "./lib/actions/users_emails_read.js",
+            "title": "Retrieve a user's email addresses",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_emails_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_emails_update": {
+            "main": "./lib/actions/users_emails_update.js",
+            "title": "Update an email address",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_emails_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_emails_replace": {
+            "main": "./lib/actions/users_emails_replace.js",
+            "title": "Replace an email address",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_emails_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_ssh_key_list": {
+            "main": "./lib/actions/users_ssh_key_list.js",
+            "title": "Retrieve an SSH key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_ssh_key_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_ssh_key_reset": {
+            "main": "./lib/actions/users_ssh_key_reset.js",
+            "title": "Recreate an SSH key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_ssh_key_reset.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_cards_list": {
+            "main": "./lib/actions/billing_cards_list.js",
+            "title": "Get credit cards",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_cards_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_cards_create": {
+            "main": "./lib/actions/billing_cards_create.js",
+            "title": "Create new credit card",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_cards_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_cards_delete": {
+            "main": "./lib/actions/billing_cards_delete.js",
+            "title": "Delete a credit card",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_cards_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_cards_read": {
+            "main": "./lib/actions/billing_cards_read.js",
+            "title": "Get credit card by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_cards_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_cards_update": {
+            "main": "./lib/actions/billing_cards_update.js",
+            "title": "Update a credit card",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_cards_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_cards_replace": {
+            "main": "./lib/actions/billing_cards_replace.js",
+            "title": "Replace a credit card",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_cards_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_invoices_list": {
+            "main": "./lib/actions/billing_invoices_list.js",
+            "title": "Get invoices",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_invoices_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_invoices_read": {
+            "main": "./lib/actions/billing_invoices_read.js",
+            "title": "Get an invoice",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_invoices_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_invoice_items_list": {
+            "main": "./lib/actions/billing_invoice_items_list.js",
+            "title": "Get invoice items for a given invoice.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_invoice_items_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_invoice_items_read": {
+            "main": "./lib/actions/billing_invoice_items_read.js",
+            "title": "Get a specific InvoiceItem.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_invoice_items_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_plans_list": {
+            "main": "./lib/actions/billing_plans_list.js",
+            "title": "Get billing plans",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_plans_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_plans_read": {
+            "main": "./lib/actions/billing_plans_read.js",
+            "title": "Get a billing plan",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_plans_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_subscriptions_list": {
+            "main": "./lib/actions/billing_subscriptions_list.js",
+            "title": "Get active subscriptons",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_subscriptions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_subscriptions_create": {
+            "main": "./lib/actions/billing_subscriptions_create.js",
+            "title": "Create a new subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_subscriptions_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_subscriptions_delete": {
+            "main": "./lib/actions/billing_subscriptions_delete.js",
+            "title": "Delete a subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_subscriptions_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "billing_subscriptions_read": {
+            "main": "./lib/actions/billing_subscriptions_read.js",
+            "title": "Get a subscriptions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/billing_subscriptions_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notifications_list": {
+            "main": "./lib/actions/notifications_list.js",
+            "title": "Get notifications of all types and entities for the authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notifications_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notifications_update_list": {
+            "main": "./lib/actions/notifications_update_list.js",
+            "title": "Mark a list of notifications as either read or unread.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notifications_update_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notifications_list_entity": {
+            "main": "./lib/actions/notifications_list_entity.js",
+            "title": "Get notifications of all types and entities for the authenticated user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notifications_list_entity.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notifications_update_entity_list": {
+            "main": "./lib/actions/notifications_update_entity_list.js",
+            "title": "Mark a list of notifications as either read or unread.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notifications_update_entity_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_settings_read": {
+            "main": "./lib/actions/notification_settings_read.js",
+            "title": "Retrieve global notification settings for the authenticated user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_settings_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_settings_update": {
+            "main": "./lib/actions/notification_settings_update.js",
+            "title": "Modify global notification settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_settings_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_settings_create": {
+            "main": "./lib/actions/notification_settings_create.js",
+            "title": "Create global notification settings",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_settings_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_settings_entity_read": {
+            "main": "./lib/actions/notification_settings_entity_read.js",
+            "title": "Retrieve global notification settings for the authenticated user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_settings_entity_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_settings_entity_update": {
+            "main": "./lib/actions/notification_settings_entity_update.js",
+            "title": "Modify global notification settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_settings_entity_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_settings_entity_create": {
+            "main": "./lib/actions/notification_settings_entity_create.js",
+            "title": "Create global notification settings",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_settings_entity_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_read": {
+            "main": "./lib/actions/notification_read.js",
+            "title": "Retrieve a specific notification.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "notification_update": {
+            "main": "./lib/actions/notification_update.js",
+            "title": "Mark a specific notification as either read or unread.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/notification_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_applications_list": {
+            "main": "./lib/actions/oauth_applications_list.js",
+            "title": "Retrieve oauth applications",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_applications_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_application_create": {
+            "main": "./lib/actions/oauth_application_create.js",
+            "title": "Create a new OAuth2 application",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_application_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_application_delete": {
+            "main": "./lib/actions/oauth_application_delete.js",
+            "title": "Delete an application by id",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_application_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_application_read": {
+            "main": "./lib/actions/oauth_application_read.js",
+            "title": "Get an application by id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_application_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_application_update": {
+            "main": "./lib/actions/oauth_application_update.js",
+            "title": "Update an application by id",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_application_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_application_replace": {
+            "main": "./lib/actions/oauth_application_replace.js",
+            "title": "Replace an application by id",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_application_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_list": {
+            "main": "./lib/actions/projects_list.js",
+            "title": "Get available projects",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_create": {
+            "main": "./lib/actions/projects_create.js",
+            "title": "Create a new project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "project_copy_check": {
+            "main": "./lib/actions/project_copy_check.js",
+            "title": "Check if you are able to copy a project to your account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/project_copy_check.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "project_copy": {
+            "main": "./lib/actions/project_copy.js",
+            "title": "Copy a project to your own account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/project_copy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_delete": {
+            "main": "./lib/actions/projects_delete.js",
+            "title": "Delete a project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_read": {
+            "main": "./lib/actions/projects_read.js",
+            "title": "Get a project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_update": {
+            "main": "./lib/actions/projects_update.js",
+            "title": "Update a project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_replace": {
+            "main": "./lib/actions/projects_replace.js",
+            "title": "Replace a project",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_collaborators_list": {
+            "main": "./lib/actions/projects_collaborators_list.js",
+            "title": "Get project collaborators",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_collaborators_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_collaborators_create": {
+            "main": "./lib/actions/projects_collaborators_create.js",
+            "title": "Create project collaborators",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_collaborators_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_collaborators_delete": {
+            "main": "./lib/actions/projects_collaborators_delete.js",
+            "title": "Delete a project collaborator",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_collaborators_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_collaborators_read": {
+            "main": "./lib/actions/projects_collaborators_read.js",
+            "title": "Get a project collaborator",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_collaborators_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_collaborators_update": {
+            "main": "./lib/actions/projects_collaborators_update.js",
+            "title": "Update project collaborator",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_collaborators_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_deployments_list": {
+            "main": "./lib/actions/projects_deployments_list.js",
+            "title": "Retrieve deployments",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_deployments_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_deployments_create": {
+            "main": "./lib/actions/projects_deployments_create.js",
+            "title": "Create a new deployment",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_deployments_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_deployment_delete": {
+            "main": "./lib/actions/projects_deployment_delete.js",
+            "title": "Delete a deployment",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_deployment_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_deployments_read": {
+            "main": "./lib/actions/projects_deployments_read.js",
+            "title": "Retrieve a deployment",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_deployments_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_deployments_update": {
+            "main": "./lib/actions/projects_deployments_update.js",
+            "title": "Update a deployment",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_deployments_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_deployments_replace": {
+            "main": "./lib/actions/projects_deployments_replace.js",
+            "title": "Replace a deployment",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_deployments_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_deployments_deploy": {
+            "main": "./lib/actions/projects_deployments_deploy.js",
+            "title": "Deploy an existing model",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_deployments_deploy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_project_files_list": {
+            "main": "./lib/actions/projects_project_files_list.js",
+            "title": "Get project files",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_project_files_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_project_files_create": {
+            "main": "./lib/actions/projects_project_files_create.js",
+            "title": "Create project files",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_project_files_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_project_files_delete": {
+            "main": "./lib/actions/projects_project_files_delete.js",
+            "title": "Delete a project file",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_project_files_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_project_files_read": {
+            "main": "./lib/actions/projects_project_files_read.js",
+            "title": "Get a project file",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_project_files_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_project_files_update": {
+            "main": "./lib/actions/projects_project_files_update.js",
+            "title": "Update a project file",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_project_files_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_project_files_replace": {
+            "main": "./lib/actions/projects_project_files_replace.js",
+            "title": "Replace a project file",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_project_files_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_list": {
+            "main": "./lib/actions/projects_servers_list.js",
+            "title": "Retrieve servers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_create": {
+            "main": "./lib/actions/projects_servers_create.js",
+            "title": "Create a new server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_statuses": {
+            "main": "./lib/actions/projects_servers_statuses.js",
+            "title": "Retrieve server statuses",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_statuses.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_delete": {
+            "main": "./lib/actions/projects_servers_delete.js",
+            "title": "Delete a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_read": {
+            "main": "./lib/actions/projects_servers_read.js",
+            "title": "Retrieve a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_update": {
+            "main": "./lib/actions/projects_servers_update.js",
+            "title": "Update a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_replace": {
+            "main": "./lib/actions/projects_servers_replace.js",
+            "title": "Replace a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_api_key": {
+            "main": "./lib/actions/projects_servers_api_key.js",
+            "title": "Get server API key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_api_key.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_auth": {
+            "main": "./lib/actions/projects_servers_auth.js",
+            "title": "Server api key validation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_auth.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_run_stats_create": {
+            "main": "./lib/actions/projects_servers_run_stats_create.js",
+            "title": "Create a new server's run statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_run_stats_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_run_stats_delete": {
+            "main": "./lib/actions/projects_servers_run_stats_delete.js",
+            "title": "Delete a server's statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_run_stats_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_run_stats_read": {
+            "main": "./lib/actions/projects_servers_run_stats_read.js",
+            "title": "Retrieve statistics for a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_run_stats_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_run_stats_update": {
+            "main": "./lib/actions/projects_servers_run_stats_update.js",
+            "title": "Update a server's statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_run_stats_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_run_stats_replace": {
+            "main": "./lib/actions/projects_servers_run_stats_replace.js",
+            "title": "Replace a server's statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_run_stats_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_ssh_tunnels_list": {
+            "main": "./lib/actions/projects_servers_ssh_tunnels_list.js",
+            "title": "Get SSH Tunnels associated to a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_ssh_tunnels_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_ssh_tunnels_create": {
+            "main": "./lib/actions/projects_servers_ssh_tunnels_create.js",
+            "title": "Create SSH Tunnel associated to a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_ssh_tunnels_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_ssh_tunnels_delete": {
+            "main": "./lib/actions/projects_servers_ssh_tunnels_delete.js",
+            "title": "Delete an SSH Tunnel associated to a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_ssh_tunnels_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_ssh_tunnels_read": {
+            "main": "./lib/actions/projects_servers_ssh_tunnels_read.js",
+            "title": "Get an SSH Tunnel associated to a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_ssh_tunnels_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_ssh_tunnels_update": {
+            "main": "./lib/actions/projects_servers_ssh_tunnels_update.js",
+            "title": "Update an SSH Tunnel associated to a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_ssh_tunnels_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_ssh_tunnels_replace": {
+            "main": "./lib/actions/projects_servers_ssh_tunnels_replace.js",
+            "title": "Replace SSH Tunnel associated to a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_ssh_tunnels_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_start": {
+            "main": "./lib/actions/projects_servers_start.js",
+            "title": "Start a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_start.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_stats_delete": {
+            "main": "./lib/actions/projects_servers_stats_delete.js",
+            "title": "Delete a server's statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_stats_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_stats_read": {
+            "main": "./lib/actions/projects_servers_stats_read.js",
+            "title": "Retrieve a server's statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_stats_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_stats_update": {
+            "main": "./lib/actions/projects_servers_stats_update.js",
+            "title": "Update a server's statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_stats_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_stats_replace": {
+            "main": "./lib/actions/projects_servers_stats_replace.js",
+            "title": "Replace a server's statistics",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_stats_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "projects_servers_stop": {
+            "main": "./lib/actions/projects_servers_stop.js",
+            "title": "Stop a server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/projects_servers_stop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "service_trigger_list": {
+            "main": "./lib/actions/service_trigger_list.js",
+            "title": "Retrieve server triggers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/service_trigger_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "service_trigger_create": {
+            "main": "./lib/actions/service_trigger_create.js",
+            "title": "Create a new server trigger",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/service_trigger_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "service_trigger_delete": {
+            "main": "./lib/actions/service_trigger_delete.js",
+            "title": "Delete a server trigger",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/service_trigger_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "service_trigger_read": {
+            "main": "./lib/actions/service_trigger_read.js",
+            "title": "Get a server trigger",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/service_trigger_read.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "service_trigger_update": {
+            "main": "./lib/actions/service_trigger_update.js",
+            "title": "Update a server trigger",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/service_trigger_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "service_trigger_replace": {
+            "main": "./lib/actions/service_trigger_replace.js",
+            "title": "Replace a server trigger",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/service_trigger_replace.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "search": {
+            "main": "./lib/actions/search.js",
+            "title": "Get a search results",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

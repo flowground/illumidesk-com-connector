@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "team": {
+            "required": true,
+            "type": "string"
+        },
+        "group": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "Group description",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Group name",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "Parent group",
+                    "type": "string"
+                },
+                "private": {
+                    "description": "States whether group is visible to all users.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

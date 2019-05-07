@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "config": {
+                    "description": "Server configuration option. Values are jupyter, restful and cron.",
+                    "type": "object",
+                    "properties": {
+                        "command": {
+                            "description": "Command to run",
+                            "type": "string"
+                        },
+                        "function": {
+                            "description": "Server function.",
+                            "type": "string"
+                        },
+                        "script": {
+                            "description": "Server script file.",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Server type.",
+                            "enum": [
+                                "jupyter",
+                                "restful",
+                                "cron"
+                            ],
+                            "type": "string"
+                        }
+                    }
+                },
+                "connected": {
+                    "description": "Array of other servers the server is connected to.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "host": {
+                    "description": "External host IPv4 address or hostname.",
+                    "type": "string"
+                },
+                "image_name": {
+                    "description": "Image name.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Server name.",
+                    "type": "string"
+                },
+                "server_size": {
+                    "description": "Server size unique identifier.",
+                    "type": "string"
+                },
+                "startup_script": {
+                    "description": "Startup script to run when launching server.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

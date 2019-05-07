@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "user": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "email": {
+                    "description": "User email.",
+                    "type": "string"
+                },
+                "first_name": {
+                    "description": "User first name.",
+                    "type": "string"
+                },
+                "last_name": {
+                    "description": "User last name.",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "User password.",
+                    "type": "string"
+                },
+                "profile": {
+                    "description": "User profile information is required, although attribute values may be empty.",
+                    "type": "object",
+                    "properties": {
+                        "avatar": {
+                            "description": "Avatar image",
+                            "format": "byte",
+                            "type": "string"
+                        },
+                        "bio": {
+                            "description": "Description of user's biography.",
+                            "type": "string"
+                        },
+                        "company": {
+                            "description": "User's company.",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "User location.",
+                            "type": "string"
+                        },
+                        "timezone": {
+                            "description": "User's time zone.",
+                            "type": "string"
+                        },
+                        "url": {
+                            "description": "Users's personal website.",
+                            "type": "string"
+                        }
+                    }
+                },
+                "username": {
+                    "description": "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "username",
+                "password",
+                "profile"
+            ],
+            "type": "object"
+        }
+    }
+}

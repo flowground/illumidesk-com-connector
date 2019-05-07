@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        },
+        "ordering": {
+            "required": false,
+            "type": "string"
+        },
+        "filename": {
+            "required": false,
+            "type": "string"
+        },
+        "content": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

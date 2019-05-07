@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "user": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "address": {
+                    "description": "Email address.",
+                    "type": "string"
+                },
+                "public": {
+                    "description": "Public or private email address.",
+                    "type": "boolean"
+                },
+                "unsubscribed": {
+                    "description": "Unsubscribed or suscribed.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "address"
+            ],
+            "type": "object"
+        }
+    }
+}

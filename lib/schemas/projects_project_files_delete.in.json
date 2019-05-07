@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

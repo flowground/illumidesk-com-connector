@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "active": {
+                    "description": "Active or not active.",
+                    "type": "boolean"
+                },
+                "cpu": {
+                    "description": "CPU set for server size.",
+                    "type": "integer"
+                },
+                "memory": {
+                    "description": "Memory set for server size.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Server size name.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "cpu",
+                "memory",
+                "active"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "address_city": {
+                    "description": "Address city.",
+                    "type": "string"
+                },
+                "address_country": {
+                    "description": "Address country.",
+                    "type": "string"
+                },
+                "address_line1": {
+                    "description": "Address line 1.",
+                    "type": "string"
+                },
+                "address_line2": {
+                    "description": "Address line 2.",
+                    "type": "string"
+                },
+                "address_state": {
+                    "description": "Address state.",
+                    "type": "string"
+                },
+                "address_zip": {
+                    "description": "Address zip code.",
+                    "type": "string"
+                },
+                "exp_month": {
+                    "description": "Card expiration month.",
+                    "type": "integer"
+                },
+                "exp_year": {
+                    "description": "Card expiration year.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Card name.",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "Card unique token.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

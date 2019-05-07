@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        },
+        "ordering": {
+            "required": false,
+            "type": "string"
+        },
+        "entity": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "billing"
+            ]
+        },
+        "read": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

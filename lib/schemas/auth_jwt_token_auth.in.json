@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "password": {
+                    "description": "User password.",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "User name.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "username",
+                "password"
+            ],
+            "type": "object"
+        }
+    }
+}

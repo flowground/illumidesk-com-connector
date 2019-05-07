@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "entity": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "billing"
+            ]
+        },
+        "requestBody": {
+            "properties": {
+                "emails_enabled": {
+                    "description": "Turn emails on or off.",
+                    "type": "boolean"
+                },
+                "enabled": {
+                    "description": "Turn notifications on or off entirely.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "enabled",
+                "emails_enabled"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "entity": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "billing"
+            ]
+        }
+    }
+}

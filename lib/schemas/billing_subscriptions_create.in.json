@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "plan": {
+                    "description": "Plan unique identifier.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "plan"
+            ],
+            "type": "object"
+        }
+    }
+}

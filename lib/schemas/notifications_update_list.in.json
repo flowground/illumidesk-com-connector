@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "notifications": {
+                    "description": "An array of notification IDs to update.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "read": {
+                    "description": "Mark the notification as either read or unread",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "notifications",
+                "read"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "config": {
+                    "description": "Deployment configuration for included files and handler.",
+                    "type": "object",
+                    "properties": {
+                        "files": {
+                            "description": "An array of ProjectFile names that should be included in the deployment.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "handler": {
+                            "description": "The filename and handler function defined by the user that will handle requests to the deployment. Ex: handler.predict",
+                            "type": "string"
+                        }
+                    }
+                },
+                "framework": {
+                    "description": "Framework that the deployment will have access to.",
+                    "enum": [
+                        "tensorflow"
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Deployment name.",
+                    "type": "string"
+                },
+                "runtime": {
+                    "description": "Language runtime the deployment will use.",
+                    "enum": [
+                        "python2.7"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "config",
+                "runtime",
+                "framework"
+            ],
+            "type": "object"
+        }
+    }
+}

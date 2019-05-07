@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "q": {
+            "required": true,
+            "type": "string"
+        },
+        "type": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "users",
+                "projects",
+                "servers"
+            ]
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

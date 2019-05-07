@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "server": {
+            "required": true,
+            "type": "string"
+        },
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "name": {
+                    "description": "Name of server action.",
+                    "type": "string"
+                },
+                "operation": {
+                    "description": "Manage server state. Starting a server changes state from Pending to Running. Terminating a server changes state from Running to Terminated. Stopping a server changes state from Running to Stopped. If the action results in Error, status will change to Error.\n",
+                    "enum": [
+                        "start",
+                        "stop",
+                        "terminate"
+                    ],
+                    "type": "string"
+                },
+                "webhook": {
+                    "properties": {
+                        "payload": {
+                            "description": "JSON with payload and webhook configurations.",
+                            "type": "object"
+                        },
+                        "url": {
+                            "description": "URL for webhook.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "url"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

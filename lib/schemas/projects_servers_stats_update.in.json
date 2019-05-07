@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "server": {
+            "required": true,
+            "type": "string"
+        },
+        "project": {
+            "required": true,
+            "type": "string"
+        },
+        "namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "id": {
+                    "description": "id field errors.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "non_field_errors": {
+                    "description": "Errors not connected to any field.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "size": {
+                    "description": "size field errors.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "start": {
+                    "description": "start field errors.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "stop": {
+                    "description": "stop field errors.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

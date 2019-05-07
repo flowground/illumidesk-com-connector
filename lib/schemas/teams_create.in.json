@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "avatar": {
+                    "description": "Team avatar image.",
+                    "format": "byte",
+                    "type": "string"
+                },
+                "avatar_url": {
+                    "description": "Team avatar url.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Team description",
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Team location.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Team name",
+                    "type": "string"
+                },
+                "website": {
+                    "description": "Teams website.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

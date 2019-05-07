@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "team": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
